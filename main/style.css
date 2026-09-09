@@ -1,0 +1,384 @@
+/* ==============================
+   GENERAL STYLES
+   ============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7fb;
+    color: #222;
+}
+
+
+/* ==============================
+   NAVIGATION
+   ============================== */
+
+nav {
+    background-color: #111827;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #60a5fa;
+}
+
+
+/* ==============================
+   SECTIONS
+   ============================== */
+
+section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+section h2 {
+    color: #1e3a8a;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+section p {
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+
+/* ==============================
+   HOME SECTION
+   ============================== */
+
+#home {
+    max-width: none;
+    margin: 0;
+    min-height: 500px;
+    padding: 120px 20px;
+    text-align: center;
+    background-color: #1e3a8a;
+    color: white;
+    border-radius: 0;
+    box-shadow: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#home h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+#home h2 {
+    color: #bfdbfe;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+#home p {
+    font-size: 19px;
+    color: #dbeafe;
+}
+
+#home hr {
+    width: 100px;
+    margin-top: 25px;
+    border: none;
+    border-top: 3px solid white;
+}
+
+
+/* ==============================
+   ABOUT & OBJECTIVE
+   ============================== */
+
+#about,
+#objective {
+    border-left: 5px solid #2563eb;
+}
+
+#about p,
+#objective p {
+    text-align: justify;
+}
+
+
+/* ==============================
+   SOCIAL LINKS
+   ============================== */
+
+.links {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 25px 40px;
+    background-color: #111827;
+    border-radius: 15px;
+}
+
+.links ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 18px;
+    border: 1px solid #374151;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.links a:hover {
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+
+
+/* ==============================
+   SKILLS
+   ============================== */
+
+#skills ul,
+section:nth-of-type(5) ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    list-style: none;
+}
+
+#skills li,
+section:nth-of-type(5) li {
+    background-color: #eff6ff;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #bfdbfe;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#skills li:hover,
+section:nth-of-type(5) li:hover {
+    transform: translateY(-5px);
+    background-color: #dbeafe;
+}
+
+
+/* ==============================
+   PROFILE IMAGE
+   ============================== */
+
+figure {
+    text-align: center;
+}
+
+figure img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #2563eb;
+}
+
+figcaption {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+
+/* ==============================
+   TABLES
+   ============================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+tr:hover {
+    background-color: #eff6ff;
+}
+
+
+/* ==============================
+   PROJECT DEMONSTRATION
+   ============================== */
+
+video {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    margin: 25px auto 0;
+    border-radius: 10px;
+}
+
+
+/* ==============================
+   CONTACT FORM
+   ============================== */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    margin-top: 15px;
+    padding: 14px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+
+/* ==============================
+   MOBILE RESPONSIVE DESIGN
+   ============================== */
+
+@media (max-width: 768px) {
+
+    nav {
+        padding: 15px;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    #home {
+        min-height: 400px;
+        padding: 80px 20px;
+    }
+
+    #home h1 {
+        font-size: 35px;
+    }
+
+    #home h2 {
+        font-size: 20px;
+    }
+
+    section {
+        margin: 25px 15px;
+        padding: 25px;
+    }
+
+    section h2 {
+        font-size: 24px;
+    }
+
+    #skills ul,
+    section:nth-of-type(5) ul {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th,
+    td {
+        padding: 10px;
+    }
+
+    .links {
+        margin: 25px 15px;
+        padding: 25px 15px;
+    }
+
+    .links ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
