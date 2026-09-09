@@ -254,12 +254,19 @@ tr:hover {
    PROJECT DEMONSTRATION
    ============================== */
 
-video {
-    display: block;
+.video-container {
     width: 100%;
     max-width: 700px;
     margin: 25px auto 0;
+}
+
+.video-container iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
     border-radius: 10px;
+    display: block;
 }
 
 
