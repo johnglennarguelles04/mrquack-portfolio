@@ -24,15 +24,62 @@ body {
 nav {
     background-color: #111827;
     padding: 18px 40px;
+
     display: flex;
-    justify-content: center;
-    gap: 35px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+
     position: sticky;
     top: 0;
     z-index: 1000;
+
+    transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 nav a {
+    position: relative;
+
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Underline */
+nav a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+
+    width: 0;
+    height: 2px;
+
+    background-color: #60a5fa;
+
+    transition: width 0.3s ease;
+}
+
+/* Grow underline from left to right */
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Hide navigation */
+nav.hide {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-links a {
     color: white;
     text-decoration: none;
     font-size: 16px;
@@ -40,8 +87,97 @@ nav a {
     transition: 0.3s;
 }
 
-nav a:hover {
+.nav-links a:hover {
     color: #60a5fa;
+}
+
+
+/* ==============================
+   SETTINGS DROPDOWN
+   ============================== */
+
+.nav-settings {
+    position: relative;
+}
+
+#settingsButton {
+    margin: 0;
+    padding: 6px 9px;
+
+    background-color: transparent;
+    color: #2e3e5a;
+
+    border: none;
+    border-radius: 6px;
+
+    font-size: 10px;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+#settingsButton:hover {
+    background-color: #374151;
+    color: white;
+    transform: none;
+}
+
+
+/* Hidden dropdown */
+.settings-menu {
+
+    position: absolute;
+    top: 100%;
+    right: 0;
+
+    margin-top: 5px;
+    padding: 3px;
+
+    background-color: #1f2937;
+    border-radius: 6px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+
+    /* Hidden state */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+}
+
+/* Open state */
+.settings-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* Night mode button */
+#themeToggle {
+    margin: 0;
+    padding: 5px 8px;
+
+    background-color: transparent;
+    color: white;
+
+    border: none;
+    border-radius: 4px;
+
+    font-size: 13px;
+    font-weight: 300;
+    white-space: nowrap;
+
+    cursor: pointer;
+}
+
+#themeToggle:hover {
+    background-color: #374151;
+    transform: none;
 }
 
 
@@ -71,16 +207,21 @@ section p {
 
 
 /* ==============================
-   HOME SECTION
+   HOME / HERO SECTION
    ============================== */
 
 #home {
     max-width: none;
+    min-height: 650px;
     margin: 0;
-    min-height: 500px;
-    padding: 120px 20px;
-    text-align: center;
-    background-color: #1e3a8a;
+    padding: 100px 20px;
+
+    background: linear-gradient(
+        135deg,
+        #1e3a8a,
+        #2563eb
+    );
+
     color: white;
     border-radius: 0;
     box-shadow: none;
@@ -89,29 +230,182 @@ section p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    text-align: center;
+}
+
+
+/* Small welcome text */
+
+.home-label {
+    margin-bottom: 15px;
+
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+
+    color: #bfdbfe;
+}
+
+
+/* Main name */
+
+#home h1 {
+    margin-bottom: 12px;
+
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+
+/* Job / student title */
+
+#home h2 {
+    margin-bottom: 15px;
+
+    color: #dbeafe;
+    font-size: 23px;
+    font-weight: 400;
+}
+
+#home h2 span {
+    color: #93c5fd;
+    margin: 0 8px;
+}
+
+
+/* Portfolio description */
+
+.home-description {
+    margin-bottom: 20px;
+
+    color: #e0f2fe;
+    font-size: 17px;
+}
+
+
+/* Animated-looking line */
+
+.home-line {
+    width: 80px;
+    height: 3px;
+
+    margin: 5px 0 30px;
+
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+/* Button */
+
+.home-button {
+    padding: 12px 24px;
+
+    color: #1e3a8a;
+    background-color: white;
+
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+
+    border-radius: 8px;
+
+    transition: 0.3s ease;
+}
+
+.home-button:hover {
+    transform: translateY(-3px);
+
+    background-color: #dbeafe;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ==============================
+   HOME ANIMATIONS
+   ============================== */
+
+.home-label {
+    animation: fadeDown 0.8s ease forwards;
 }
 
 #home h1 {
-    font-size: 50px;
-    margin-bottom: 10px;
+    animation: fadeUp 0.9s ease 0.2s forwards;
+
+    opacity: 0;
 }
 
 #home h2 {
-    color: #bfdbfe;
-    font-size: 25px;
-    margin-bottom: 10px;
+    animation: fadeUp 0.9s ease 0.4s forwards;
+
+    opacity: 0;
 }
 
-#home p {
-    font-size: 19px;
-    color: #dbeafe;
+.home-description {
+    animation: fadeUp 0.9s ease 0.6s forwards;
+
+    opacity: 0;
 }
 
-#home hr {
-    width: 100px;
-    margin-top: 25px;
-    border: none;
-    border-top: 3px solid white;
+.home-line {
+    animation: expandLine 0.8s ease 0.8s forwards;
+
+    transform: scaleX(0);
+}
+
+.home-button {
+    animation: fadeUp 0.9s ease 1s forwards;
+
+    opacity: 0;
+}
+
+
+/* ==============================
+   ANIMATION KEYFRAMES
+   ============================== */
+
+@keyframes fadeDown {
+
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes expandLine {
+
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+
 }
 
 
@@ -120,8 +414,24 @@ section p {
    ============================== */
 
 #about,
-#objective {
+#objective
+#certificates {
     border-left: 5px solid #2563eb;
+
+    opacity: 0;
+    transform: translateY(40px);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+}
+
+/* Animation starts when JavaScript adds .show */
+#about.show,
+#objective.show ,
+#certificates.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 #about p,
@@ -164,6 +474,50 @@ section p {
     background-color: #2563eb;
     border-color: #2563eb;
 }
+/* ==============================
+   SOCIAL LINKS — ENTRANCE ANIMATION
+   ============================== */
+
+.links {
+    opacity: 0;
+    transform: translateY(40px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.links.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.links li {
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+.links.show li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger each link */
+.links.show li:nth-child(1) {
+    transition-delay: 0.15s;
+}
+
+.links.show li:nth-child(2) {
+    transition-delay: 0.3s;
+}
+
+.links.show li:nth-child(3) {
+    transition-delay: 0.45s;
+}
 
 
 /* ==============================
@@ -171,26 +525,99 @@ section p {
    ============================== */
 
 #skills ul,
-section:nth-of-type(5) ul {
+#personal-skills ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     list-style: none;
 }
 
+
+/* Skill cards */
+
 #skills li,
-section:nth-of-type(5) li {
+#personal-skills li {
     background-color: #eff6ff;
     padding: 15px;
     text-align: center;
     border-radius: 10px;
     border: 1px solid #bfdbfe;
+
     font-weight: bold;
-    transition: 0.3s;
+
+    opacity: 0;
+    transform: translateY(40px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease,
+        background-color 0.3s ease;
 }
 
+
+/* Show cards */
+
+#skills.show li,
+#personal-skills.show li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Stagger Technical Skills */
+
+#skills.show li:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+#skills.show li:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+#skills.show li:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+#skills.show li:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+#skills.show li:nth-child(5) {
+    transition-delay: 0.5s;
+}
+
+#skills.show li:nth-child(6) {
+    transition-delay: 0.6s;
+}
+
+
+/* Stagger Personal Skills */
+
+#personal-skills.show li:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+#personal-skills.show li:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+#personal-skills.show li:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+#personal-skills.show li:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+#personal-skills.show li:nth-child(5) {
+    transition-delay: 0.5s;
+}
+
+
+/* Hover */
+
 #skills li:hover,
-section:nth-of-type(5) li:hover {
+#personal-skills li:hover {
     transform: translateY(-5px);
     background-color: #dbeafe;
 }
@@ -204,13 +631,75 @@ figure {
     text-align: center;
 }
 
-figure img {
+.profile-image {
+    position: relative;
     width: 200px;
     height: 200px;
-    object-fit: cover;
+    margin: 0 auto;
+
     border-radius: 50%;
+    overflow: hidden;
+
     border: 5px solid #2563eb;
 }
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* ==============================
+   MOVING SHINE
+   ============================== */
+
+.profile-image::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -100%;
+
+    width: 50%;
+    height: 100%;
+
+    background: linear-gradient(
+        100deg,
+        transparent,
+        rgba(255, 255, 255, 0.8),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    animation: profileShine 3s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+@keyframes profileShine {
+
+    0% {
+        left: -100%;
+    }
+
+    45% {
+        left: 150%;
+    }
+
+    100% {
+        left: 150%;
+    }
+
+}
+
+
+/* ==============================
+   CAPTION
+   ============================== */
 
 figcaption {
     margin-top: 15px;
@@ -227,26 +716,150 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+
+    overflow: hidden;
+    border-radius: 10px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
+
+/* ==============================
+   TABLE HEADER
+   ============================== */
+
 th {
+    position: relative;
+
     background-color: #1e3a8a;
     color: white;
+
     padding: 15px;
     text-align: left;
+
+    overflow: hidden;
 }
+
+
+/* Moving shine across header */
+
+th::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -100%;
+
+    width: 40%;
+    height: 100%;
+
+    background: linear-gradient(
+        100deg,
+        transparent,
+        rgba(255, 255, 255, 0.25),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    animation: tableShine 4s ease-in-out infinite;
+}
+
+
+/* ==============================
+   TABLE CELLS
+   ============================== */
 
 td {
     padding: 15px;
     border-bottom: 1px solid #ddd;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
 }
+
+
+/* ==============================
+   ROW ANIMATION
+   ============================== */
+
+tbody tr {
+    opacity: 0;
+    transform: translateX(-40px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        background-color 0.3s ease;
+}
+
+
+/* Show rows */
+
+table.show tbody tr {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* Row-by-row delay */
+
+table.show tbody tr:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+table.show tbody tr:nth-child(2) {
+    transition-delay: 0.3s;
+}
+
+table.show tbody tr:nth-child(3) {
+    transition-delay: 0.5s;
+}
+
+
+/* ==============================
+   ALTERNATING ROWS
+   ============================== */
 
 tr:nth-child(even) {
     background-color: #f8fafc;
 }
 
-tr:hover {
+
+/* ==============================
+   HOVER
+   ============================== */
+
+tbody tr:hover {
     background-color: #eff6ff;
+
+    transform: scale(1.01) !important;
+}
+
+tbody tr:hover td {
+    color: #1e3a8a;
+}
+
+
+/* ==============================
+   SHINE ANIMATION
+   ============================== */
+
+@keyframes tableShine {
+
+    0% {
+        left: -100%;
+    }
+
+    40% {
+        left: 150%;
+    }
+
+    100% {
+        left: 150%;
+    }
+
 }
 
 
@@ -267,6 +880,43 @@ tr:hover {
     border: 0;
     border-radius: 10px;
     display: block;
+}
+
+/* ==============================
+   PROJECT DEMONSTRATION TEXT
+   ============================== */
+
+#project-demonstration h2 {
+    opacity: 0;
+    transform: translateY(30px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+#project-demonstration > p {
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition:
+        opacity 1s ease 0.25s,
+        transform 1s ease 0.25s;
+}
+
+
+/* ==============================
+   SHOW ANIMATION
+   ============================== */
+
+#project-demonstration.show h2 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#project-demonstration.show > p {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 
@@ -294,6 +944,7 @@ textarea {
     border-radius: 8px;
     font-family: inherit;
     font-size: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 input:focus,
@@ -302,6 +953,7 @@ textarea:focus {
     outline: none;
     border-color: #2563eb;
     box-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
+    transform: translateY(-3px);
 }
 
 textarea {
@@ -326,66 +978,449 @@ button:hover {
     transform: translateY(-2px);
 }
 
-
 /* ==============================
-   MOBILE RESPONSIVE DESIGN
+   CONTACT — ENTRANCE ANIMATION
    ============================== */
 
+#contact {
+    opacity: 0;
+    transform: scale(0.9);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+#contact.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ==============================
+   SUCCESS MESSAGE
+   ============================== */
+
+.success-message {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 9999;
+
+    background: #28a745;
+    color: white;
+
+    padding: 15px 25px;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+    opacity: 0;
+    transform: translateX(100px);
+
+    pointer-events: none;
+}
+
+.success-message.show {
+    animation:
+        slideIn 0.5s ease forwards,
+        fadeOut 0.5s ease 3s forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+}
+
+
+/* Mobile */
 @media (max-width: 768px) {
 
-    nav {
-        padding: 15px;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-
-    nav a {
-        font-size: 14px;
-    }
-
     #home {
-        min-height: 400px;
+        min-height: 550px;
         padding: 80px 20px;
     }
 
     #home h1 {
-        font-size: 35px;
+        font-size: 36px;
     }
 
     #home h2 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
-    section {
-        margin: 25px 15px;
-        padding: 25px;
+    .home-label {
+        font-size: 11px;
+        letter-spacing: 2px;
     }
 
-    section h2 {
-        font-size: 24px;
+    .home-description {
+        font-size: 15px;
     }
 
-    #skills ul,
-    section:nth-of-type(5) ul {
-        grid-template-columns: 1fr;
+    .success-message {
+        top: 20px;
+        left: 20px;
+        right: 20px;
+
+        text-align: center;
+        padding: 14px 15px;
     }
 
-    table {
-        font-size: 14px;
+}
+
+
+/* ==============================
+   NIGHT MODE
+   ============================== */
+
+body.dark-mode {
+    background-color: #111827;
+    color: #f3f4f6;
+}
+
+body.dark-mode section {
+    background-color: #1f2937;
+    color: #f3f4f6;
+}
+
+body.dark-mode section h2 {
+    color: #93c5fd;
+}
+
+body.dark-mode section p {
+    color: #e5e7eb;
+}
+
+body.dark-mode #about,
+body.dark-mode #objective {
+    border-left-color: #60a5fa;
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+    background-color: #374151;
+    color: white;
+    border-color: #4b5563;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #d1d5db;
+}
+
+body.dark-mode .links {
+    background-color: #030712;
+}
+
+body.dark-mode #skills li,
+body.dark-mode #personal-skills li {
+    background-color: #374151;
+    border-color: #4b5563;
+}
+
+body.dark-mode tr:nth-child(even) {
+    background-color: #374151;
+}
+
+body.dark-mode td {
+    border-bottom-color: #4b5563;
+}
+
+body.dark-mode .certificate-card {
+    background-color: #1f2937;
+    border-color: #374151;
+}
+
+body.dark-mode .certificate-info p {
+    color: #d1d5db;
+}
+
+body.dark-mode .close-certificate {
+    background-color: #374151;
+    color: #f3f4f6;
+}
+
+body.dark-mode .close-certificate:hover {
+    background-color: #4b5563;
+}
+
+/* ==============================
+   CERTIFICATES
+   ============================== */
+
+#certificates {
+    overflow: hidden;
+}
+
+.certificate-intro {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+
+/* ==============================
+   CERTIFICATE CONTAINER
+   ============================== */
+
+.certificate-wrapper {
+    width: 100%;
+    overflow: hidden;
+
+    padding: 20px 0;
+}
+
+
+/* ==============================
+   CERTIFICATE TRACK
+   ============================== */
+
+.certificate-track {
+    display: flex;
+    gap: 25px;
+
+    width: max-content;
+
+    animation: certificateMove 35s linear infinite;
+    pointer-events: auto;
+}
+
+
+/* ==============================
+   CERTIFICATE CARD
+   ============================== */
+
+.certificate-card {
+    flex: 0 0 260px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+
+    padding: 12px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
+
+    cursor: pointer;
+
+    transition:transform 0.3s ease,box-shadow 0.3s ease;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* ==============================
+   CERTIFICATE IMAGE
+   ============================== */
+
+.certificate-card img {
+    width: 100%;
+    height: 180px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 8px;
+
+    transition:transform 0.4s ease;
+    pointer-events: none;
+    -webkit-user-drag: none;
+}
+
+
+/* ==============================
+   INFORMATION
+   ============================== */
+
+.certificate-info {
+    padding: 12px 5px 5px;
+
+    text-align: center;
+}
+
+.certificate-info h3 {
+    margin-bottom: 5px;
+
+    color: #1e3a8a;
+
+    font-size: 17px;
+}
+
+.certificate-info p {
+    margin: 0;
+
+    color: #555;
+
+    font-size: 14px;
+}
+
+
+/* ==============================
+   HOVER
+   ============================== */
+
+.certificate-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 12px 25px rgba(37, 99, 235, 0.18);
+}
+
+
+/* Stop the moving animation */
+
+.certificate-wrapper:hover .certificate-track {
+    animation-play-state: paused;
+}
+
+
+/* Slightly enlarge image */
+
+.certificate-card:hover img {
+    transform: scale(1.03);
+}
+
+
+/* ==============================
+   RIGHT → LEFT ANIMATION
+   ============================== */
+
+@keyframes certificateMove {
+
+    from {
+        transform: translateX(0);
     }
 
-    th,
-    td {
-        padding: 10px;
+    to {
+        transform: translateX(-50%);
     }
 
-    .links {
-        margin: 25px 15px;
-        padding: 25px 15px;
-    }
+}
 
-    .links ul {
-        flex-direction: column;
-        align-items: center;
-    }
+/* ==============================
+   CERTIFICATE MODAL
+   ============================== */
+
+.certificate-modal {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.85);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+    z-index: 9999;
+
+    cursor: zoom-out;
+}
+
+
+/* Show modal */
+
+.certificate-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Enlarged certificate */
+
+#enlargedCertificate {
+    max-width: 90%;
+    max-height: 90%;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.5);
+
+    transform: scale(0.8);
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* Zoom when opened */
+
+.certificate-modal.show #enlargedCertificate {
+    transform: scale(1);
+}
+
+
+/* Close button */
+
+.close-certificate {
+    position: absolute;
+
+    top: 25px;
+    right: 35px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: white;
+    color: #1e3a8a;
+
+    font-size: 30px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+.close-certificate:hover {
+    transform: rotate(90deg) scale(1.1);
+
+    background-color: #dbeafe;
 }
