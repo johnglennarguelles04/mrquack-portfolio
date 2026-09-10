@@ -9,6 +9,11 @@
     scroll-behavior: smooth;
 }
 
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
@@ -30,8 +35,10 @@ nav {
     align-items: center;
     gap: 20px;
 
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
 
     transition: transform 0.4s ease, opacity 0.4s ease;
@@ -218,8 +225,8 @@ section p {
 
     background: linear-gradient(
         135deg,
-        #1e3a8a,
-        #2563eb
+        #3363e7,
+        #010c22
     );
 
     color: white;
@@ -414,9 +421,10 @@ section p {
    ============================== */
 
 #about,
-#objective
+#objective,
 #certificates {
     border-left: 5px solid #2563eb;
+    padding-left: 55px;
 
     opacity: 0;
     transform: translateY(40px);
@@ -435,7 +443,8 @@ section p {
 }
 
 #about p,
-#objective p {
+#objective p,
+#certificates p {
     text-align: justify;
 }
 
@@ -1057,6 +1066,14 @@ button:hover {
 /* Mobile */
 @media (max-width: 768px) {
 
+    #about,
+    #objective,
+    #certificates {
+        padding-left: 35px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
     #home {
         min-height: 550px;
         padding: 80px 20px;
@@ -1088,6 +1105,109 @@ button:hover {
         padding: 14px 15px;
     }
 
+    nav {
+        padding: 12px 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .nav-links {
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    /* 👇 new font-size rules go here */
+    section {
+        padding: 25px 20px;
+    }
+
+    section h2 {
+        font-size: 22px;
+    }
+
+    section p {
+        font-size: 15px;
+    }
+
+    #skills li,
+    #personal-skills li {
+        font-size: 14px;
+        padding: 12px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    th, td {
+        padding: 10px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .certificate-info p {
+        font-size: 13px;
+    }
+
+    figcaption {
+        font-size: 14px;
+    }
+
+    .links a {
+        font-size: 14px;
+        padding: 8px 14px;
+    }
+}
+
+    @media (max-width: 768px) {
+    #skills ul,
+    #personal-skills ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    #skills ul,
+    #personal-skills ul {
+        grid-template-columns: 1fr;
+    }
+
+    #home h1 {
+        font-size: 28px;
+    }
+
+    #home h2 {
+        font-size: 15px;
+    }
+
+    section h2 {
+        font-size: 19px;
+    }
+
+    section p {
+        font-size: 14px;
+    }
+
+    .home-description {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
 }
 
 
@@ -1167,6 +1287,14 @@ body.dark-mode .close-certificate:hover {
     background-color: #4b5563;
 }
 
+body.dark-mode tbody tr:hover {
+    background-color: #ffffff;
+}
+
+body.dark-mode tbody tr:hover td {
+    color: #1e3a8a;
+}
+
 /* ==============================
    CERTIFICATES
    ============================== */
@@ -1176,7 +1304,7 @@ body.dark-mode .close-certificate:hover {
 }
 
 .certificate-intro {
-    text-align: center;
+    text-align: left;
     margin-bottom: 25px;
 }
 
