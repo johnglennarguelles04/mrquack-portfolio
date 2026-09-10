@@ -9,18 +9,39 @@
 <body>
 
     <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div class="nav-settings">
+        <button id="settingsButton" type="button">▼</button>
+
+        <div class="settings-menu">
+            <button id="themeToggle" type="button">🌙 Night Mode</button>
+        </div>
+    </div>
 </nav>
 
 <section id="home">
+
+    <p class="home-label">WELCOME TO MY PORTFOLIO</p>
+
     <h1>John Glenn F. Arguelles</h1>
-    <h2>BSIT Student | Aspiring Web Developer</h2>
-    <p>Web Development Internship Portfolio</p>
-    <hr>
+
+    <h2>BSIT Student <span>|</span> Aspiring Web Developer</h2>
+
+    <p class="home-description">
+        Web Development Internship Portfolio
+    </p>
+
+    <div class="home-line"></div>
+
+    <a href="#about" class="home-button">Explore My Portfolio</a>
+
 </section>
 
     <section id="about">
@@ -64,7 +85,7 @@
     </ul>
 </section>
 
-<section>
+<section id="personal-skills">
     <h2>Personal Skills</h2>
 
     <ul>
@@ -78,7 +99,9 @@
 
 <section>
     <figure>
-        <img src="ID pic.jpg" alt="John Glenn F. Arguelles">
+        <div class="profile-image">
+            <img src="ID pic.jpg" alt="John Glenn F. Arguelles">
+        </div>
         <figcaption>
             John Glenn F. Arguelles — BSIT Student and Aspiring Web Developer
         </figcaption>
@@ -117,6 +140,74 @@
             </tr>
         </tbody>
     </table>
+</section>
+
+<section id="certificates">
+
+    <h2>Certificates & Training</h2>
+
+    <p class="certificate-intro">
+        These certificates represent my training, learning experiences,
+        and skills development in Information Technology.
+    </p>
+
+    <div class="certificate-wrapper">
+
+        <div class="certificate-track">
+
+            <div class="certificate-card">
+                <img src="cert1.jpg" alt="Certificate 1">
+                <div class="certificate-info">
+                    <p>for being the Best in Web Design in the Computer Literacy Training held at Cor Jesu College, Inc.</p>
+                </div>
+            </div>
+
+            <div class="certificate-card">
+                <img src="cert2.jpg" alt="Certificate 2">
+                <div class="certificate-info">
+                    <p>for being the Best in Computer-Aided Design in the Computer Literacy Training held at Cor Jesu College, Inc.</p>
+                </div>
+            </div>
+
+            <div class="certificate-card">
+                <img src="cert3.jpg" alt="Certificate 3">
+                <div class="certificate-info">
+                    <p>for being the Best in Keyboarding in the Computer Literacy Training held at Cor Jesu College, Inc.</p>
+                </div>
+            </div>
+
+            <div class="certificate-card">
+                <img src="cert4.jpg" alt="Certificate 4">
+                <div class="certificate-info">
+                    <p>for being the Best in Adobe Photoshop in the Computer Literacy Training held at Cor Jesu College, Inc.</p>
+                </div>
+            </div>
+
+            <div class="certificate-card">
+                <img src="cert5.jpg" alt="Certificate 5">
+                <div class="certificate-info">
+                    <p>for being the Best in Microsoft PowerPoint in the Computer Literacy Training held at Cor Jesu College, Inc.</p>
+                </div>
+            </div>
+
+            <div class="certificate-card">
+                <img src="cert6.jpg" alt="Certificate 6">
+                <div class="certificate-info">
+                    <p>for being the Best in Microsoft Word in the Computer Literacy Training held at Cor Jesu College, Inc.</p>
+                </div>
+            </div>
+
+            <div class="certificate-card">
+                <img src="cert7.jpg" alt="Certificate 7">
+                <div class="certificate-info">
+                    <p>for having completed the Advanced Information and Communication Technology (ICT) Topics and Computer Literacy Training Modules.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
 <section id="projects">
@@ -159,7 +250,7 @@
     </table>
 </section>
 
-<section>
+<section id="project-demonstration">
     <h2>Project Demonstration</h2>
 
     <p>
@@ -248,7 +339,28 @@
 
     </form>
 </section>
+
+<div id="successMessage" class="success-message">
+    ✓ Message Sent Successfully!
+</div>
     
+<!-- ==============================
+     CERTIFICATE IMAGE VIEWER
+     ============================== -->
+
+<div id="certificateModal" class="certificate-modal">
+
+    <button id="closeCertificate" class="close-certificate">
+        &times;
+    </button>
+
+    <img
+        id="enlargedCertificate"
+        src=""
+        alt="Enlarged Certificate">
+</div>
+
 <script src="script.js"></script>
+
 </body>
 </html>
