@@ -891,6 +891,22 @@ tbody tr:hover td {
     display: block;
 }
 
+/* NEW: video file styling */
+.video-container video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+    border-radius: 10px;
+    display: block;
+    background-color: #000;
+}
+
+/* NEW: space between the first video and the second description */
+#project-demonstration .video-container + p {
+    margin-top: 35px;
+}
+
 /* ==============================
    PROJECT DEMONSTRATION TEXT
    ============================== */
