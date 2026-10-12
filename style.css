@@ -903,8 +903,8 @@ tbody tr:hover td {
 }
 
 /* NEW: space between the first video and the second description */
-#project-demonstration .video-container + p {
-    margin-top: 35px;
+#project-demonstration .video-container + h2 {
+    margin-top: 45px;
 }
 
 /* ==============================
